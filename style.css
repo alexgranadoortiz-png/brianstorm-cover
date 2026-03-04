@@ -23,8 +23,8 @@ body {
 /* Tocadiscos */
 .turntable {
   position: relative;
-  width: 900px;
-  max-width: 95vw;     /* se adapta en móvil */
+  width: 720px;          /* tamaño real */
+  max-width: 95vw;       /* se adapta en móvil */
   height: auto;
   margin: 0 auto;
 }
@@ -55,7 +55,7 @@ body {
 
 /* Giro */
 .spin {
-  animation: spin 1.8s linear infinite;
+  animation: spin 2.5s linear infinite;
 }
 
 @keyframes spin {
@@ -66,16 +66,16 @@ body {
 /* Botón */
 button {
   position: absolute;
-  top: 19%;
-  left: 21%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 1.5rem;        /* texto más pequeño */
+  font-size: 1.5rem;
   background: rgba(0,0,0,0.6);
   color: white;
   border: 2px solid white;
   border-radius: 50%;
-  width: 60px;             /* ancho más pequeño */
-  height: 60px;            /* alto más pequeño */
+  width: 60px;
+  height: 60px;
   cursor: pointer;
 }
 
@@ -91,14 +91,3 @@ button:active {
   text-decoration: none;
   font-size: 0.9rem;
 }
-
-
-
-
-
-
-
-
-
-
-
