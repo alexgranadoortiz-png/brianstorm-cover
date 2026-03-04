@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Brianstorm-cover</title>
+<title>Reproductor</title>
 
 <style>
 body {
@@ -15,13 +15,11 @@ body {
   height: 100vh;
 }
 
-/* CONTENEDOR DEL TOCADISCOS */
+/* CONTENEDOR TOCADISCOS */
 .turntable {
   position: relative;
   width: 90%;
   max-width: 720px;
-
-  /* Mantiene proporción exacta del tocadiscos */
   aspect-ratio: 720 / 404;
 
   background: url("tocadiscos_base.jpg") no-repeat center;
@@ -31,25 +29,26 @@ body {
 /* VINILO */
 .vinyl {
   position: absolute;
-
-  /* 🔧 AJUSTA ESTO SI NECESITAS */
-  width: 34%;        /* tamaño del vinilo */
-
-  top: 50%;          /* centro vertical */
-  left: 43%;         /* desplazar horizontal si hace falta */
+  width: 34%;
+  top: 50%;
+  left: 43%;
 
   transform: translate(-50%, -50%);
-  pointer-events: none;
+  transform-origin: center center;
 }
 
-/* ANIMACIÓN GIRO 33⅓ RPM */
-@keyframes spin {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to   { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
+/* ANIMACIÓN */
 .spin {
   animation: spin 1.8s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }
 
 /* BOTÓN */
@@ -73,32 +72,39 @@ button {
 
 <div class="turntable">
   <img src="vinyl_pic.png" class="vinyl" id="vinyl">
-  
+
   <div class="controls">
-    <button onclick="togglePlay()" id="playBtn">▶</button>
+    <button id="playBtn">▶</button>
   </div>
 </div>
 
-<audio id="audio" src="song.mp3"></audio>
+<audio id="audio">
+  <source src="cancion.mp3" type="audio/mpeg">
+</audio>
 
 <script>
 const audio = document.getElementById("audio");
 const vinyl = document.getElementById("vinyl");
 const btn = document.getElementById("playBtn");
 
-function togglePlay() {
+btn.addEventListener("click", function() {
+
   if (audio.paused) {
-    audio.play();
-    vinyl.classList.add("spin");
-    btn.textContent = "⏸";
+    audio.play().then(() => {
+      vinyl.classList.add("spin");
+      btn.textContent = "⏸";
+    }).catch(error => {
+      console.log("Error al reproducir:", error);
+    });
+
   } else {
     audio.pause();
     vinyl.classList.remove("spin");
     btn.textContent = "▶";
   }
-}
+
+});
 </script>
 
 </body>
 </html>
-
