@@ -41,16 +41,12 @@ body {
 /* Vinilo personalizado */
 .vinyl {
   position: absolute;
-
-  /* Ajusta esto si hace falta */
-  width: 300px;
-
-  /* Centrado exacto */
+  width: 35%;
+  max-width: 360px;
+  min-width: 220px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
-  pointer-events: none;
 }
 
 /* Giro */
@@ -91,6 +87,7 @@ button:active {
   text-decoration: none;
   font-size: 0.9rem;
 }
+
 
 
 
