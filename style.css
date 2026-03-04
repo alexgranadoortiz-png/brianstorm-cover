@@ -66,8 +66,8 @@ body {
 /* Botón */
 button {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 20%;
+  left: 20%;
   transform: translate(-50%, -50%);
   font-size: 1rem;        /* texto más pequeño */
   background: rgba(0,0,0,0.6);
@@ -91,6 +91,7 @@ button:active {
   text-decoration: none;
   font-size: 0.9rem;
 }
+
 
 
 
