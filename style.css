@@ -6,8 +6,8 @@
 }
 
 body {
-  height: 100vh;
   background: #000;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,29 +17,43 @@ body {
 .container {
   text-align: center;
   color: white;
+  width: 100%;
 }
 
 /* Tocadiscos */
 .turntable {
   position: relative;
-  width: 720px;
-  max-width: 95vw;
+  width: 720px;          /* tamaño real */
+  max-width: 95vw;       /* se adapta en móvil */
+  height: auto;
+  margin: 0 auto;
+}
+
+/* Imagen del tocadiscos */
+.turntable::before {
+  content: "";
+  display: block;
+  width: 100%;
   aspect-ratio: 720 / 404;
   background: url("tocadiscos.jpg") center / contain no-repeat;
-  margin: 0 auto;
 }
 
 /* Vinilo personalizado */
 .vinyl {
   position: absolute;
-  width: 38%;          /* Ajusta si hace falta */
+
+  /* Ajusta esto si hace falta */
+  width: 260px;
+
+  /* Centrado exacto */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
   pointer-events: none;
 }
 
-/* Animación de giro */
+/* Giro */
 .spin {
   animation: spin 2.5s linear infinite;
 }
