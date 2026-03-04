@@ -43,7 +43,7 @@ body {
   position: absolute;
 
   /* Ajusta esto si hace falta */
-  width: 300px;
+  width: 360px;
 
   /* Centrado exacto */
   top: 50%;
@@ -66,16 +66,16 @@ body {
 /* Botón */
 button {
   position: absolute;
-  top: 20%;
-  left: 20%;
+  top: 19%;
+  left: 21%;
   transform: translate(-50%, -50%);
-  font-size: 1rem;        /* texto más pequeño */
+  font-size: 1.5rem;        /* texto más pequeño */
   background: rgba(0,0,0,0.6);
   color: white;
   border: 2px solid white;
   border-radius: 50%;
-  width: 40px;             /* ancho más pequeño */
-  height: 40px;            /* alto más pequeño */
+  width: 60px;             /* ancho más pequeño */
+  height: 60px;            /* alto más pequeño */
   cursor: pointer;
 }
 
@@ -91,6 +91,7 @@ button:active {
   text-decoration: none;
   font-size: 0.9rem;
 }
+
 
 
 
