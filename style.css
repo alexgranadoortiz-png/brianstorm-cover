@@ -23,8 +23,8 @@ body {
 /* Tocadiscos */
 .turntable {
   position: relative;
-  width: 720px;          /* tamaño real */
-  max-width: 95vw;       /* se adapta en móvil */
+  width: 90vw;            /*tamaño real*/
+  max-width: 1100px;       /* se adapta en móvil */
   height: auto;
   margin: 0 auto;
 }
@@ -91,4 +91,5 @@ button:active {
   text-decoration: none;
   font-size: 0.9rem;
 }
+
 
