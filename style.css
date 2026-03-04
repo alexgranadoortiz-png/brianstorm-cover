@@ -35,7 +35,7 @@ body {
   display: block;
   width: 100%;
   aspect-ratio: 720 / 404;
-  background: url("tocadiscos.jpg") center / contain no-repeat;
+  background: url("tocadiscos.png") center / contain no-repeat;
 }
 
 /* Vinilo personalizado */
@@ -91,5 +91,6 @@ button:active {
   text-decoration: none;
   font-size: 0.9rem;
 }
+
 
 
