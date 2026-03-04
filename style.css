@@ -43,10 +43,10 @@ body {
   position: absolute;
 
   /* Ajusta esto si hace falta */
-  width: 258px;
+  width: 260px;
 
   /* Centrado exacto */
-  top: 49%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 
@@ -91,6 +91,7 @@ button:active {
   text-decoration: none;
   font-size: 0.9rem;
 }
+
 
 
 
