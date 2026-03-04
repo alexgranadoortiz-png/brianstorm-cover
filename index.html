@@ -1,34 +1,103 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Brianstorm-cover</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reproductor</title>
+
+<style>
+body {
+  margin: 0;
+  background: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* CONTENEDOR DEL TOCADISCOS */
+.turntable {
+  position: relative;
+  width: 90%;
+  max-width: 720px;
+
+  /* Mantiene proporción exacta del tocadiscos */
+  aspect-ratio: 720 / 404;
+
+  background: url("tocadiscos_base.jpg") no-repeat center;
+  background-size: contain;
+}
+
+/* VINILO */
+.vinyl {
+  position: absolute;
+
+  /* 🔧 AJUSTA ESTO SI NECESITAS */
+  width: 34%;        /* tamaño del vinilo */
+
+  top: 50%;          /* centro vertical */
+  left: 43%;         /* desplazar horizontal si hace falta */
+
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* ANIMACIÓN GIRO 33⅓ RPM */
+@keyframes spin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.spin {
+  animation: spin 1.8s linear infinite;
+}
+
+/* BOTÓN */
+.controls {
+  position: absolute;
+  bottom: 8%;
+  right: 8%;
+}
+
+button {
+  padding: 10px 18px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+</style>
 </head>
+
 <body>
 
-<div class="container">
-
-  <div class="turntable">
-
-    <!-- Vinilo personalizado -->
-    <img src="vinyl_pic.png" class="vinyl" id="vinyl">
-
-    <!-- Botón -->
-    <button id="playBtn">▶</button>
-
+<div class="turntable">
+  <img src="vinyl_pic.png" class="vinyl" id="vinyl">
+  
+  <div class="controls">
+    <button onclick="togglePlay()" id="playBtn">▶</button>
   </div>
-
-  <a class="download" href="song.mp3" download>
-    Descargar canción
-  </a>
-
-  <audio id="audio" src="song.mp3"></audio>
-
 </div>
 
-<script src="script.js"></script>
-</body>
+<audio id="audio" src="cancion.mp3"></audio>
 
+<script>
+const audio = document.getElementById("audio");
+const vinyl = document.getElementById("vinyl");
+const btn = document.getElementById("playBtn");
+
+function togglePlay() {
+  if (audio.paused) {
+    audio.play();
+    vinyl.classList.add("spin");
+    btn.textContent = "⏸";
+  } else {
+    audio.pause();
+    vinyl.classList.remove("spin");
+    btn.textContent = "▶";
+  }
+}
+</script>
+
+</body>
 </html>
