@@ -43,10 +43,10 @@ body {
   position: absolute;
 
   /* tamaño relativo al tocadiscos */
-  width: 60%;
+  width: 70%;
 
   top: 48%;
-  left: 49%;
+  left: 49.5%;
   transform: translate(-50%, -50%);
 
   pointer-events: none;
@@ -93,6 +93,7 @@ button:active {
   text-decoration: none;
   font-size: 0.9rem;
 }
+
 
 
 
